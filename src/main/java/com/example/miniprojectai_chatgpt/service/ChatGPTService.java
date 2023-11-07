@@ -32,14 +32,14 @@ public class ChatGPTService {
         this.webClientBuilder = webClientBuilder;
     }
 
-    public List<Choice> fetchChatGPT(ChatRequestFromUser chatRequestFromUser) {
-        ChatRequest chatRequest = createChatRequest(chatRequestFromUser);
+    public List<Choice> fetchChatGPT(ComputerRequirements computerRequirements) {
+        ChatRequest chatRequest = createChatRequest(computerRequirements);
         ChatResponse response = sendChatRequest(chatRequest);
         return response.getChoices();
     }
 
     // Opret beskeder baseret på brugerinput
-    private ChatRequest createChatRequest(ChatRequestFromUser chatRequestFromUser) {
+    private ChatRequest createChatRequest(ComputerRequirements computerRequirements) {
         ChatRequest chatRequest = new ChatRequest();
         chatRequest.setModel(gptModel);
         List<Message> lstMessages = new ArrayList<>();
@@ -51,11 +51,11 @@ public class ChatGPTService {
                         "Form factor: %s\n" +
                         "Popularity: %s\n" +
                         "Other: %s",
-                chatRequestFromUser.getUserInformation().getPrimaryUsage(),
-                chatRequestFromUser.getUserInformation().getBudget(),
-                chatRequestFromUser.getUserInformation().getFormFactor(),
-                chatRequestFromUser.getUserInformation().getPopularity(),
-                chatRequestFromUser.getUserInformation().getOther());
+                computerRequirements.getPrimaryUsage(),
+                computerRequirements.getBudget(),
+                computerRequirements.getFormFactor(),
+                computerRequirements.getPopularity(),
+                computerRequirements.getOther());
 
 
         lstMessages.add(new Message(SYSTEM_ROLE, "You are a helpful assistant."));

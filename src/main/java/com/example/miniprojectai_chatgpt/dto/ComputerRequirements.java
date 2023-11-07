@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class UserInformation {
+public class ComputerRequirements {
     private int id;
     private String primaryUsage;
     private String formFactor;

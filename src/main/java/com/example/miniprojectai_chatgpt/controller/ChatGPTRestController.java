@@ -1,7 +1,7 @@
 package com.example.miniprojectai_chatgpt.controller;
 
-import com.example.miniprojectai_chatgpt.dto.ChatRequestFromUser;
 import com.example.miniprojectai_chatgpt.dto.Choice;
+import com.example.miniprojectai_chatgpt.dto.ComputerRequirements;
 import com.example.miniprojectai_chatgpt.service.ChatGPTService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +21,9 @@ public class ChatGPTRestController {
 
 
     @PostMapping("/chat")
-    public List<Choice> chatWithGPT(@RequestBody ChatRequestFromUser chatRequestFromUser) {
-        System.out.println(chatRequestFromUser.toString());
-        return chatGPTService.fetchChatGPT(chatRequestFromUser);
+    public List<Choice> chatWithGPT(@RequestBody ComputerRequirements computerRequirements) {
+        System.out.println(computerRequirements.toString());
+        return chatGPTService.fetchChatGPT(computerRequirements);
 
     }
 
