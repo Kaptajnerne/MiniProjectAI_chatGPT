@@ -64,6 +64,7 @@ public class ChatGPTService {
                 "try to explain why it suits me," +
                 " can you then try to explain what some of the components in the computer does, " +
                 "Can you make it as simple as possible" +
+                "Can you give a link to a page where I can purchase the computer" +
                 "Can you start with saying 'I've found the perfect computer just for you! By SpecSeeker - Kaptajnerne'"));
 
         chatRequest.setMessages(lstMessages);
