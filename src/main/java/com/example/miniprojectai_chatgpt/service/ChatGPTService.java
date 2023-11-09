@@ -49,12 +49,10 @@ public class ChatGPTService {
                         "Primary usage: %s\n" +
                         "Budget: %.2f\n" +
                         "Form factor: %s\n" +
-                        "Popularity: %s\n" +
                         "Other: %s",
                 computerRequirements.getPrimaryUsage(),
                 computerRequirements.getBudget(),
                 computerRequirements.getFormFactor(),
-                computerRequirements.getPopularity(),
                 computerRequirements.getOther());
 
 
