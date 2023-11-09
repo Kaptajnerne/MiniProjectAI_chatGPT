@@ -61,11 +61,8 @@ public class ChatGPTService {
         lstMessages.add(new Message(SYSTEM_ROLE, "You are a helpful assistant."));
         lstMessages.add(new Message(USER_ROLE, userMessage));
         lstMessages.add(new Message(USER_ROLE, "Can you tell me which computer that fits my requirements and" +
-                "try to explain why it suits me," +
-                " can you then try to explain what some of the components in the computer does, " +
-                "Can you make it as simple as possible" +
-                "Can you give a link to a page where I can purchase the computer" +
-                "Can you start with saying 'I've found the perfect computer just for you! By SpecSeeker - Kaptajnerne'"));
+                "can u make it in 190 words or less" +
+                "Can you make it as simple as possible"));
 
         chatRequest.setMessages(lstMessages);
         chatRequest.setTemperature(1);
