@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 public class ComputerRequirements {
     private int id;
     private String primaryUsage;
-    private String formFactor;
+    private String hardware;
+    private String buildType;
     private double budget;
     private String other;
 }

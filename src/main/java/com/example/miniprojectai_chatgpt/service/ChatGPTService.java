@@ -38,28 +38,29 @@ public class ChatGPTService {
         return response.getChoices();
     }
 
-    // Opret beskeder baseret på brugerinput
+    //Creates ChatRequest
     private ChatRequest createChatRequest(ComputerRequirements computerRequirements) {
         ChatRequest chatRequest = new ChatRequest();
         chatRequest.setModel(gptModel);
         List<Message> lstMessages = new ArrayList<>();
 
-        // Construct a message with the computer requirements
         String userMessage = String.format("I'm looking for a computer with the following specifications:\n" +
                         "Primary usage: %s\n" +
                         "Budget: %.2f\n" +
-                        "Form factor: %s\n" +
+                        "Hardware: %s\n" +
+                        "Build Type: %s\n" +
                         "Other: %s",
                 computerRequirements.getPrimaryUsage(),
                 computerRequirements.getBudget(),
-                computerRequirements.getFormFactor(),
+                computerRequirements.getHardware(),
+                computerRequirements.getBuildType(),
                 computerRequirements.getOther());
 
 
         lstMessages.add(new Message(SYSTEM_ROLE, "You are a helpful assistant."));
         lstMessages.add(new Message(USER_ROLE, userMessage));
-        lstMessages.add(new Message(USER_ROLE, "Can you tell me which computer that fits my requirements and" +
-                "can u make it in 190 words or less" +
+        lstMessages.add(new Message(USER_ROLE, "Can you tell me which computer that fits my requirements. " +
+                "Make good html formatting for each component you're mentioning." +
                 "Can you make it as simple as possible"));
 
         chatRequest.setMessages(lstMessages);
@@ -71,8 +72,7 @@ public class ChatGPTService {
         return chatRequest;
     }
 
-
-    // Send chatanmodningen ved hjælp af WebClient
+    //Sends ChatRequest to chatGPT API
     private ChatResponse sendChatRequest(ChatRequest chatRequest) {
         return webClientBuilder.baseUrl(gptApiUrl)
                 .build()
@@ -84,5 +84,4 @@ public class ChatGPTService {
                 .bodyToMono(ChatResponse.class)
                 .block();
     }
-
 }
