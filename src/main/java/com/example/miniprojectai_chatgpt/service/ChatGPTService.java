@@ -65,7 +65,7 @@ public class ChatGPTService {
 
         chatRequest.setMessages(lstMessages);
         chatRequest.setTemperature(1);
-        chatRequest.setMaxTokens(250);
+        chatRequest.setMaxTokens(500);
         chatRequest.setStream(false);
         chatRequest.setPresencePenalty(1);
 
